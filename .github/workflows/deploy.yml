@@ -46,7 +46,7 @@ jobs:
       run: |
         kubectl get namespace vidalcasino || kubectl create namespace vidalcasino
         kubectl apply -f k8s/postgres-k8s.yaml
-        kubectl rollout status deployment/postgres-db -n vidalcasino --timeout=120s
+        kubectl rollout status deployment/postgres-db -n vidalcasino --timeout=300s
         kubectl apply -f k8s/k8s-deployment.yaml -f k8s/k8s-service.yaml
         kubectl rollout restart deployment/casino-backend -n vidalcasino
         kubectl rollout status deployment/casino-backend -n vidalcasino --timeout=300s
