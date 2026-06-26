@@ -203,9 +203,9 @@ spec:
             command:
             - pg_isready
             - -U
-            - $(POSTGRES_USER)
+            - casino
             - -d
-            - $(POSTGRES_DB)
+            - casino_db
           initialDelaySeconds: 5
           periodSeconds: 5
         livenessProbe:
@@ -213,9 +213,9 @@ spec:
             command:
             - pg_isready
             - -U
-            - $(POSTGRES_USER)
+            - casino
             - -d
-            - $(POSTGRES_DB)
+            - casino_db
           initialDelaySeconds: 10
           periodSeconds: 10
       volumes:
