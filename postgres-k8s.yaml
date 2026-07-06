@@ -15,18 +15,6 @@ data:
   DB_PASSWORD: Y2FzaW5v
   JWT_SECRET: Y2FtYmlhbWU=
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: postgres-pvc
-  namespace: vidalcasino
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -98,8 +86,7 @@ spec:
           periodSeconds: 10
       volumes:
       - name: pgdata
-        persistentVolumeClaim:
-          claimName: postgres-pvc
+        emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
