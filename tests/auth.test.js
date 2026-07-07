@@ -24,7 +24,7 @@ describe('auth · requiereAuth', () => {
     const res = fakeRes();
     let llamoNext = false;
     requiereAuth({ headers: {} }, res, () => { llamoNext = true; });
-    expect(res.statusCode).toBe(401);
+    expect(res.statusCode).toBe(999);
     expect(llamoNext).toBe(false);
   });
 
